@@ -9,6 +9,11 @@ const port = process.env.PORT || 8080;
 app.use(cors());
 app.use(express.json());
 
+// --- Add this new root route handler ---
+app.get("/", (req, res) => {
+    res.status(200).send("Backend API is running successfully!");
+});
+
 app.get('/api/posts', getAllPosts);
 
 app.use('/admin', postRoutes);
