@@ -33,13 +33,9 @@ app.get("/", (req, res) => {
 });
 app.get('/api/posts', postController_1.getAllPosts);
 app.use('/admin', postRoutes_1.default);
-// --- Conditional Listen for Local Development ---
-// This will be ignored by Vercel but allows `npm run dev` to work locally.
-if (process.env.NODE_ENV !== 'production') {
-    app.listen(port, () => {
-        console.log(`Backend server starting for local development on http://localhost:${port}`);
-    });
-}
+app.listen(port, () => {
+    console.log(`Server is running on http://localhost:${port}`);
+});
 // --- Export for Vercel ---
 // Vercel uses this default export to run the app.
 exports.default = app;
