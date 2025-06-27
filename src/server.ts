@@ -27,8 +27,8 @@ app.use(async (req: Request, res: Response, next: NextFunction) => {
 app.get("/", (req: Request, res: Response) => {
     res.status(200).send("Backend API is running successfully!");
 });
-app.get('api/posts', getAllPosts);
-app.use('admin', postRoutes);
+app.get('/api/posts', getAllPosts);
+app.use('/admin', postRoutes);
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
