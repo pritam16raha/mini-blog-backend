@@ -1,11 +1,12 @@
 {
   "name": "mini-blog-backend",
   "version": "1.0.0",
+  "description": "",
   "main": "dist/server.js",
   "scripts": {
     "build": "tsc",
     "start": "node dist/server.js",
-    "ve": "ts-node-dev --respawn --transpile-only src/server.ts"
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts"
   },
   "repository": {
     "type": "git",
@@ -18,17 +19,16 @@
     "url": "https://github.com/pritam16raha/mini-blog-backend/issues"
   },
   "homepage": "https://github.com/pritam16raha/mini-blog-backend#readme",
-  "description": "",
   "dependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.14.2",
     "cors": "^2.8.5",
-    "express": "^5.1.0",
+    "express": "^4.19.2",
     "lowdb": "^7.0.1"
   },
   "devDependencies": {
-    "@types/cors": "^2.8.19",
-    "@types/express": "^5.0.3",
-    "@types/node": "^24.0.4",
     "ts-node-dev": "^2.0.0",
-    "typescript": "^5.8.3"
+    "typescript": "^5.4.5"
   }
 }
