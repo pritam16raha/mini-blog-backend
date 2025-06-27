@@ -11,8 +11,14 @@ const app = (0, express_1.default)();
 const port = process.env.PORT || 8080;
 app.use((0, cors_1.default)());
 app.use(express_1.default.json());
-app.get('/api/posts', postController_1.getAllPosts);
-app.use('/admin', postRoutes_1.default);
-app.listen(port, () => {
-    console.log(`Backend server is running on http://localhost:${port}`);
+app.get("/", (req, res) => {
+    res.status(200).send("Backend API is running successfully!");
 });
+app.use('/api/posts', postController_1.getAllPosts);
+app.use('/admin', postRoutes_1.default);
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(port, () => {
+        console.log(`Backend server is running for local development on http://localhost:${port}`);
+    });
+}
+exports.default = app;
