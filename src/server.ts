@@ -10,9 +10,6 @@ const port = process.env.PORT || 8080;
 app.use(cors());
 app.use(express.json());
 
-// --- Database Middleware ---
-// This middleware ensures the database is loaded before any route is handled.
-// This is a robust pattern for serverless environments like Vercel.
 app.use(async (req: Request, res: Response, next: NextFunction) => {
     try {
         // db.data will be null on the first request to a new serverless instance.
