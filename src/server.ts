@@ -1,4 +1,4 @@
-import express, { Express } from 'express';
+import express, { Express, Request, Response } from 'express';
 import cors from 'cors';
 import postRoutes from './routes/postRoutes';
 import { getAllPosts } from './controllers/postController';
@@ -8,16 +8,17 @@ const port = process.env.PORT || 8080;
 
 app.use(cors());
 app.use(express.json());
-
-// --- Add this new root route handler ---
-app.get("/", (req, res) => {
+app.get("/", (req: Request, res: Response) => {
     res.status(200).send("Backend API is running successfully!");
 });
 
 app.get('/api/posts', getAllPosts);
-
 app.use('/admin', postRoutes);
 
-app.listen(port, () => {
-    console.log(`Backend server is running on http://localhost:${port}`);
-});
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(port, () => {
+        console.log(`Backend server is running for local development on http://localhost:${port}`);
+    });
+}
+
+export default app;
