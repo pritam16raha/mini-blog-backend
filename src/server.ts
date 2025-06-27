@@ -12,7 +12,7 @@ app.get("/", (req: Request, res: Response) => {
     res.status(200).send("Backend API is running successfully!");
 });
 
-app.get('/api/posts', getAllPosts);
+app.use('/api/posts', getAllPosts);
 app.use('/admin', postRoutes);
 
 if (process.env.NODE_ENV !== 'production') {
